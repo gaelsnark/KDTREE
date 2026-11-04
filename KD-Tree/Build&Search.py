@@ -90,3 +90,33 @@ print(f"Puntos de entrada: {puntos}")
 print(f"Rango de consulta R: X en [4, 8], Y en [1, 5]")
 print(f"Puntos dentro del rango: {puntos_encontrados}")
     
+
+
+
+
+
+
+class Mouse:
+    def __init__(self, start_pos, target_pos, kd_tree_root):
+        self.current_pos = start_pos
+        self.target_pos = target_pos
+        self.kd_tree = kd_tree_root
+        self.visited = {start_pos}
+        self.path = [start_pos]
+
+    def get_adjacent_valid_steps(self):
+        """Usa SEARCHKDTREE para obtener celdas caminables a distancia 1 del ratón."""
+        x, y = self.current_pos
+        # Rango 2D R en caja de radio 1 alrededor de la posición del ratón
+        search_range = ((x - 1, x + 1), (y - 1, y + 1))
+        
+        # Puntos encontrados en el KD-Tree dentro del rango de visión del ratón
+        candidates = search_kd_tree(self.kd_tree, search_range)
+        
+        # Filtrar solo vecinos ortogonales (arriba, abajo, izquierda, derecha) no visitados
+        valid_neighbors = []
+        for cx, cy in candidates:
+            dist_manhattan = abs(cx - x) + abs(cy - y)
+            if dist_manhattan == 1 and (cx, cy) not in self.visited:
+                valid_neighbors.append((cx, cy))
+        return valid_neighbors
