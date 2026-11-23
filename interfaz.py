@@ -5,7 +5,7 @@ import time
 
 #Variables que usaremos
 #Cada celda mide 40 * 40 píxeles
-cell_size = 40
+cell_size = 30
 #Laberinto sencillo = 10x10 celdas
 easy_grid_size = 10
 #Laberijnto medio = 15x15 celdas

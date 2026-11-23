@@ -170,7 +170,7 @@ def cargar_modulo_kdtree():
     nombre tiene '&' y la carpeta tiene '-'. Se silencia su demo de arranque.
     Devuelve el módulo, o None si el archivo no existe.
     """
-    ruta = Path(__file__).resolve().parent.parent / "KD-Tree" / "Build&Search.py"  # ruta relativa a este archivo
+    ruta = Path(__file__).resolve().parent / "KD-Tree" / "Build&Search.py"  # ruta relativa a este archivo
     if not ruta.exists():              # si el archivo no está en el repo...
         return None                    # ...avisamos devolviendo None
 
