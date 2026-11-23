@@ -12,7 +12,7 @@ from interfaz import (                 # reutilizamos lo que ya existe en interf
     MazeSolver, cell_size, start,      # clase base, tamaño de celda y posición inicial
     easy_grid_size, medium_grid_size, hard_grid_size,  # tamaños de los 3 niveles
 )
-from Minimouse.bfs import (            # importamos nuestro módulo BFS
+from bfs import (            # importamos nuestro módulo BFS
     SensorConContador,                 # sensor que cuenta consultas
     bfs,                               # el algoritmo de búsqueda
     crear_sensor_fuerza_bruta,         # sensor de fuerza bruta
